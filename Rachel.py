@@ -24,8 +24,6 @@ def make_player():
      
     contenttot = []
 
-    songlength = 13
-
     contentmus = []
 
     infile = open("AutoPlayList2.txt", "r")
@@ -70,16 +68,21 @@ def make_player():
 
         fich = sublst[pl]
 
-
     if len(sublst) <= 1:
 
         totch = random.randrange(totlen)
 
         fich = contenttot[totch]
-   
+
+    while(session['slide'] == fich):
+      
+        totch = random.randrange(totlen)
+
+        fich = contenttot[totch]
+
     session['slide'] = fich
 
-    return render_template('slideshow.html', toplay1 = fich, toplay2 = atrack1, songlen = songlength )
+    return render_template('slideshow.html', toplay1 = fich, toplay2 = atrack1)
 
 webbrowser.open('http://localhost:5000')
 
