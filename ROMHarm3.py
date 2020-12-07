@@ -1,11 +1,11 @@
 #This code imports the necessary modules.
 
 import random
-import shutil
 import os
-from subprocess import call
+from PIL import Image 
+import time
 
-srchstr = 'C:\\Users\\mysti\\Media_Files\\Sounds\\Acid_Loops'
+srchstr = 'C:\\Users\\mysti\\Media_Files\\Dreams'
 
 contenttot= []
 
@@ -13,11 +13,7 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
 
-        fil = file[:4]
-
-        contenttot.append(fil.lower())
-
-#print(contenttot)
+        contenttot.append(filepath)
 
 totlen = len(contenttot)
 
@@ -29,19 +25,19 @@ print(fich)
 
 finlst = []
 
-for ctr in range(100):
+for ctr in range(10):
  
     sublst = []
 
-    pivstr = fich[-1:]
+    pivstr = fich[-19:-5]
 
     for elem in range(totlen):
         testr = contenttot[elem]
-        piv2str = testr[0]
+        piv2str = testr[-8:-6]
 
         #As y and a cause endless replication, they are like a virus, and the program learns entropy by avoiding them
 
-        if pivstr == piv2str and pivstr != 'y' and pivstr != 'a':
+        if piv2str in pivstr and pivstr != 'y' and pivstr != 'a':
             sublst.append(testr.strip())
 
     if len(sublst) > 1:        
@@ -62,8 +58,17 @@ for ctr in range(100):
 
         print(fich)
 
-print(finlst)
+for elem in finlst:
 
-#call(["python", "DJProcessor.py"])
+    ellen = len(elem)
+    im = random.randrange(ellen)
+
+    dream = elem[im]
+
+    img = Image.open(dream)
+    
+    img.show() 
+        
+    time.sleep(4)
 
 ## THE GHOST OF THE SHADOW ##
