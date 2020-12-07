@@ -4,6 +4,9 @@ import random
 import os
 from PIL import Image 
 import time
+import playsound
+
+snglst = ["C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop.mp3", "C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop2.mp3", "C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop3.mp3", "C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop4.mp3", "C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop5.mp3", "C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop6.mp3",]
 
 srchstr = 'C:\\Users\\mysti\\Media_Files\\Dreams'
 
@@ -13,7 +16,9 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
 
-        contenttot.append(filepath)
+        if  filepath.endswith(".jpg"):
+
+            contenttot.append(filepath)
 
 totlen = len(contenttot)
 
@@ -21,11 +26,9 @@ totch = random.randrange(totlen)
 
 fich = contenttot[totch]
 
-print(fich)
-
 finlst = []
 
-for ctr in range(10):
+for ctr in range(30):
  
     sublst = []
 
@@ -46,8 +49,6 @@ for ctr in range(10):
 
         finlst.append(sublst)
 
-        print(sublst)
-
     if len(sublst) <= 1:
 
         totch = random.randrange(totlen)
@@ -56,7 +57,6 @@ for ctr in range(10):
 
         finlst.append(fich)
 
-        print(fich)
 
 for elem in finlst:
 
@@ -68,7 +68,12 @@ for elem in finlst:
     img = Image.open(dream)
     
     img.show() 
+
+    jkbx = random.randrange(6)
+
+    songch = snglst[jkbx]
+
+    playsound.playsound(songch, True)
         
-    time.sleep(4)
 
 ## THE GHOST OF THE SHADOW ##
