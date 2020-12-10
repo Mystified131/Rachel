@@ -4,7 +4,9 @@ import random
 import os
 from collections import defaultdict
 
-srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
+#srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
+
+srchstr = 'E:\\OriginalAudio\\Songs'
 
 contentdat = {}
 
@@ -20,7 +22,7 @@ for subdir, dirs, files in os.walk(srchstr):
 
 newply = []
 
-for w in sorted(contentdat, key=contentdat.get, reverse=True):
+for w in sorted(contentdat, key=contentdat.get, reverse=False):
     newply.append(w)
 
 
