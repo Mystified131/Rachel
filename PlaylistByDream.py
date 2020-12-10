@@ -3,6 +3,19 @@
 import random
 import os
 from collections import defaultdict
+import datetime
+
+#this code retrieves the date and time from the computer, to create the timestamp
+
+right_now = datetime.datetime.now().isoformat()
+list = []
+
+for i in right_now:
+    if i.isnumeric():
+        list.append(i)
+
+time = ("".join(list))
+   
 
 #srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
 
@@ -34,19 +47,17 @@ totch = random.randrange(totlen)
 
 fitch = newply[totch]
 
-fich = newplyd[totch]
-
-print(fich)
+fich = str(newplyd[totch])
 
 finlst = []
 
-for ctr in range(30):
+for ctr in range(300):
  
     sublst = []
 
     for elem in range(totlen):
         tesstr = newply[elem]
-        testr = newplyd[elem]
+        testr = str(newplyd[elem])
         piv2str = testr[-10:-8]
 
         if piv2str in fich:
@@ -70,9 +81,11 @@ for ctr in range(30):
 
         finlst.append(fich)
 
-outfile = open('DreamOrderedPlaylist.m3u', "w")
+ounam = "DreamOrderedPlaylist_" + time + ".m3u"
 
-for elem in newply:
+outfile = open(ounam, "w")
+
+for elem in finlst:
      outfile.write(elem + '\n')
 
 outfile.close()

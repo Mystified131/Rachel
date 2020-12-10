@@ -3,6 +3,18 @@
 import random
 import os
 from collections import defaultdict
+import datetime
+
+#this code retrieves the date and time from the computer, to create the timestamp
+
+right_now = datetime.datetime.now().isoformat()
+list = []
+
+for i in right_now:
+    if i.isnumeric():
+        list.append(i)
+
+time = ("".join(list))
 
 #srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
 
@@ -22,55 +34,12 @@ for subdir, dirs, files in os.walk(srchstr):
 
 newply = []
 
-newplyd = []
-
 for w in sorted(contentdat, key=contentdat.get, reverse=False):
     newply.append(w)
-    newplyd.append(contentdat[w])
 
-totlen = len(newply)
+ounam = "DateOrderedPlaylist_" + time + ".m3u"
 
-totch = random.randrange(totlen)
-
-fitch = newply[totch]
-
-fich = newplyd[totch]
-
-print(fich)
-
-finlst = []
-
-for ctr in range(30):
- 
-    sublst = []
-
-    for elem in range(totlen):
-        tesstr = newply[elem]
-        testr = newplyd[elem]
-        piv2str = testr[-10:-8]
-
-        if piv2str in fich:
-            sublst.append(tesstr)
-
-    if len(sublst) > 1:   
-
-        subl = len(sublst)    
-
-        trok = random.randrange(subl) 
-
-        fich = sublst[trok]
-
-        finlst.append(fich)
-
-    if len(sublst) <= 1:
-
-        totch = random.randrange(totlen)
-
-        fich = newply[totch]
-
-        finlst.append(fich)
-
-outfile = open('DreamOrderedPlaylist.m3u', "w")
+outfile = open(ounam, "w")
 
 for elem in newply:
      outfile.write(elem + '\n')
