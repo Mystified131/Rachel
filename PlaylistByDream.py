@@ -19,7 +19,9 @@ time = ("".join(list))
 
 #srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
 
-srchstr = 'E:\\OriginalAudio\\Songs'
+#srchstr = 'E:\\OriginalAudio\\Songs'
+
+srchstr = 'C:\\Users\\mysti\\Downloads'
 
 contentdat = {}
 
@@ -51,7 +53,7 @@ fich = str(newplyd[totch])
 
 finlst = []
 
-for ctr in range(300):
+for ctr in range(20):
  
     sublst = []
 
