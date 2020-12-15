@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
-      
+
     <head>
         <title>RACHEL</title>
 
-        <link rel="stylesheet" href = "/static/bootstrapc.css">
+        <link rel="stylesheet" href = "/static/bootstrapz.css">
 
     </head>
     <body>
-            <div class = "jumbotron">
-                
+        <br>
+
+
             <div align=center >
 
-        <h3>RACHEL: <em>A Free Screensaver That Helps Your Computer To Dream</em></h3><br>
 
-<img width = "1000" src = {{toplay1}}>
+        <table cellpadding=0 cellspacing=0  border="15" bordercolor="gray">
+
+<tr><td width=936 height=531 bgcolor = "black"   ><img src = {{toplay1}}></td></tr>
+</table>
+
 
 <audio   autoplay = "True"  source src = {{toplay2}} type = "audio/mp3" onended="window.open('?', '_self');" >Your browser does not support embedded audio</audio>
 
@@ -22,19 +26,22 @@
 
 <div align=center>
 
+ <h3>RACHEL: <em>A Free Screensaver That Helps Your Computer To Dream</em></h3><br>
+
 <form action = "/player"><h5>To load your dream, if there's ever a problem loading, or to start the next dream:</h5>
     <br>
-    <input type="submit" value = "Load Mix" />
+    <input type="submit" value = "Load Dream" />
     </form>
     <br><br>
       <form action = "/"><h5>To stop the dream from playing:</h5>
     <br>
-    <input type="submit" value = "Stop Mix" />
+    <input type="submit" value = "Stop Dream" />
     </form>
     <br><br>
 
     <h4>This application was created by <a href = "https://archive.org/details/ThomasParkBenchmarkHub">Thomas Park</a>.</h4>
 <h5>This application is best experienced with a Windows PC and Google Chrome or the Internet Explorer browser(s). Other setups might not function.</h5>
+<h5>If audio does not autoplay, press here: <button onclick="playallaudio();">Load Dream</button></h5>
 
 <br><br>
 </div>
