@@ -16,16 +16,9 @@ for i in right_now:
 
 time = ("".join(list))
    
-
-#srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
-
-#srchstr = 'E:\\OriginalAudio\\Songs'
-
-#srchstr = 'C:\\Users\\mysti\\Downloads'
-
-#srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
-
 srchstr = "C:\\Users\\mysti\\Desktop\Bin\\02_NewPoems"
+
+srchstr = "C:\\Users\\mysti\\Desktop\\Bin\\Matt"
 
 contentdat = {}
 
@@ -33,7 +26,7 @@ for subdir, dirs, files in os.walk(srchstr):
     for file in files:
         filepath = subdir + os.sep + file
 
-        if  filepath.endswith(".txt"):
+        if  filepath.endswith(".txt") :
 
             tim = os.path.getmtime(filepath)
 
