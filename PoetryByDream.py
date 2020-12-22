@@ -4,6 +4,7 @@ import random
 import os
 from collections import defaultdict
 import datetime
+import re
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -89,7 +90,11 @@ for docnam in finlst:
     plist = infile.readline()
     while plist:
         if len(plist) > 3:
-            txlst.append(plist)
+            qlist = plist.strip()
+            tlist = qlist.replace(')', '')
+            ulist = tlist.replace('(', '')
+            rlist = ulist[0].lower() + ulist[1:]
+            txlst.append(rlist.strip)
         plist = infile.readline()
     infile.close()
   
@@ -108,11 +113,21 @@ for x in range (ctr):
 
         polst.append(txlst[lin + y])
 
-    polst.append("")
+        polst.append("")
 
-ounm = "Poetic_Dream" + time + ".txt"
+    #polst.append("")
+
+ounm = "Poetic_Dream_" + time + ".txt"
+
+oun = "Poetic Dream " + time 
 
 outfile = open(ounm, "w")
+
+outfile.write(oun + '\n')
+
+outfile.write( '\n')
+
+outfile.write( '\n')
 
 for elem in polst:
 
