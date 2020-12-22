@@ -191,10 +191,9 @@ for elem in polst:
 endstr = unidecode(bigstr)
 endstr2 = endstr.replace("THE CASTLE", "")
 endstr3 = endstr2.replace("ANOTHER VERSION", "")
-endstr4 = endstr3.replace("f_", "Frieda")
 
 remove_digits = str.maketrans('', '', digits)
-endstr5 = endstr4.translate(remove_digits)
+endstr5 = endstr3.translate(remove_digits)
 
 
 ounm = "Short_Prose_Dream_" + time + ".txt"
