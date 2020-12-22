@@ -94,7 +94,7 @@ for docnam in finlst:
             tlist = qlist.replace(')', '')
             ulist = tlist.replace('(', '')
             rlist = ulist[0].lower() + ulist[1:]
-            txlst.append(rlist.strip)
+            txlst.append(rlist)
         plist = infile.readline()
     infile.close()
   
