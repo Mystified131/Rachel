@@ -128,7 +128,7 @@ for elem in wdlst:
     if len(subl) > 0:
 
         subl.append(elem)
-        
+
     if len(subl) == 0:
 
         elem2 = elem[0].upper() + elem[1:]
@@ -152,8 +152,8 @@ for elem in wdlst:
 
 ctr = len(bigl)
 
-if ctr > 5000:
-    ctr = 5000
+if ctr > 1000:
+    ctr = 1000
 
 lim = ctr - 5
 
@@ -180,9 +180,9 @@ for elem in polst:
             bigstr += elem2 
 
 
-ounm = "Prosaic_Dream_" + time + ".txt"
+ounm = "Short_Prose_Dream_" + time + ".txt"
 
-oun = "Prosaic Dream " + time 
+oun = "Short Prose Dream " + time 
 
 outfile = open(ounm, "w")
 
