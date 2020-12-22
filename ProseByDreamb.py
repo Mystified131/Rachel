@@ -5,6 +5,7 @@ import os
 from collections import defaultdict
 import datetime
 import re
+from nltk import tokenize
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -17,9 +18,9 @@ for i in right_now:
 
 time = ("".join(list))
    
-srchstr = "C:\\Users\\mysti\\Desktop\Bin\\02_NewPoems"
+#srchstr = "C:\\Users\\mysti\\Desktop\Bin\\02_NewPoems"
 
-srchstr = "C:\\Users\\mysti\\Desktop\\Bin\\Matt"
+srchstr = "C:\\Users\\mysti\\Desktop\\Bin\\Reviews"
 
 contentdat = {}
 
@@ -83,22 +84,34 @@ for ctr in range(50):
 
 txlst = []
 
+wdlst = []
+
 for docnam in finlst:
 
-    infile = open(docnam, "r")
+    sublst = []
 
-    plist = infile.readline()
-    while plist:
-        if len(plist) > 3:
-            qlist = plist.strip()
-            tlist = qlist.replace(')', '')
-            ulist = tlist.replace('(', '')
-            rlist = ulist[0].lower() + ulist[1:]
-            txlst.append(rlist)
-        plist = infile.readline()
-    infile.close()
+    par = ""
+
+    with open(docnam, "r") as f:
+        par = f.read()
+
+    sublst = par.split()
+
+    for elem in sublst:
+
+        wdlst.append(elem)
+
+subl = []
+
+
+for elem in wdlst:
+    subl.append(elem)
+
+    if elem == "." or elem == "!" or elem == "?" :
+        txlst.append(subl)
+        subl = []
   
-ctr = int(len(txlst)/5)
+ctr = (len(txlst))
 
 lim = ctr - 5
 
@@ -113,13 +126,16 @@ for x in range (ctr):
 
         polst.append(txlst[lin + y])
 
-        polst.append("")
+print(polst)
 
-    #polst.append("")
+bigstr = ""
 
-ounm = "Poetic_Dream_" + time + ".txt"
+for elem in polst:
+    bigstr += elem
 
-oun = "Poetic Dream " + time 
+ounm = "Prosaic_Dream_" + time + ".txt"
+
+oun = "Prosaic Dream " + time 
 
 outfile = open(ounm, "w")
 
@@ -129,9 +145,7 @@ outfile.write( '\n')
 
 outfile.write( '\n')
 
-for elem in polst:
-
-    outfile.write(elem + '\n')
+outfile.write(bigstr + '\n')
 
 outfile.close()       
 

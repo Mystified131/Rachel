@@ -5,6 +5,7 @@ import os
 from collections import defaultdict
 import datetime
 import re
+from nltk import tokenize
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -17,9 +18,9 @@ for i in right_now:
 
 time = ("".join(list))
    
-srchstr = "C:\\Users\\mysti\\Desktop\Bin\\02_NewPoems"
+#srchstr = "C:\\Users\\mysti\\Desktop\Bin\\02_NewPoems"
 
-srchstr = "C:\\Users\\mysti\\Desktop\\Bin\\Matt"
+srchstr = "C:\\Users\\mysti\\Desktop\\Bin\\Reviews"
 
 contentdat = {}
 
@@ -83,22 +84,36 @@ for ctr in range(50):
 
 txlst = []
 
+wdlst = []
+
 for docnam in finlst:
 
-    infile = open(docnam, "r")
+    sublst = []
 
-    plist = infile.readline()
-    while plist:
-        if len(plist) > 3:
-            qlist = plist.strip()
-            tlist = qlist.replace(')', '')
-            ulist = tlist.replace('(', '')
-            rlist = ulist[0].lower() + ulist[1:]
-            txlst.append(rlist)
-        plist = infile.readline()
-    infile.close()
-  
-ctr = int(len(txlst)/5)
+    par = ""
+
+    with open(docnam, "r") as f:
+        par = f.read()
+
+    sublst = par.split()
+
+    for elem in sublst:
+
+        wdlst.append(elem)
+
+subl = []
+
+bigl = []
+
+for elem in wdlst:
+    subl.append(elem)
+
+    if elem.endswith(".") or elem.endswith("!") or elem.endswith("?") :
+        bigl.append(subl)
+        subl = []
+
+
+ctr = len(bigl)
 
 lim = ctr - 5
 
@@ -107,19 +122,24 @@ polst = []
 for x in range (ctr):
     lin = random.randrange(lim)
 
-    rem = random.randrange(2,4)
+    rem = random.randrange(1,3)
 
     for y in range(rem):
 
-        polst.append(txlst[lin + y])
+        polst.append(bigl[lin + y])
 
-        polst.append("")
+    polst.append("")
 
-    #polst.append("")
+bigstr = ""
 
-ounm = "Poetic_Dream_" + time + ".txt"
+for elem in polst:
+    for elem2 in elem:
+        bigstr += elem2 + " "
 
-oun = "Poetic Dream " + time 
+
+ounm = "Prosaic_Dream_" + time + ".txt"
+
+oun = "Prosaic Dream " + time 
 
 outfile = open(ounm, "w")
 
@@ -129,9 +149,7 @@ outfile.write( '\n')
 
 outfile.write( '\n')
 
-for elem in polst:
-
-    outfile.write(elem + '\n')
+outfile.write(bigstr + '\n')
 
 outfile.close()       
 
