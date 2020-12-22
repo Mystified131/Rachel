@@ -93,7 +93,10 @@ for docnam in finlst:
     par = ""
 
     with open(docnam, "r") as f:
-        par = f.read()
+        try:
+            par = f.read()
+        except:
+            print("Unicode error")
 
     sublst = par.split()
 
@@ -130,6 +133,9 @@ for elem in wdlst:
 
 ctr = len(bigl)
 
+if ctr > 5000:
+    ctr = 5000
+
 lim = ctr - 5
 
 polst = []
@@ -165,7 +171,11 @@ outfile.write(oun + '\n')
 
 outfile.write( '\n')
 
-outfile.write(bigstr + '\n')
+try:
+    outfile.write(bigstr + '\n')
+except:
+    print("")
+    print("Unicode error")
 
 outfile.close()       
 
