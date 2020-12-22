@@ -99,19 +99,34 @@ for docnam in finlst:
 
     for elem in sublst:
 
-        wdlst.append(elem)
+        elem2 = elem.strip()
+
+        if elem2[0] != "." and elem2[0] != "!" and elem2[0] != "?":
+
+            wdlst.append(elem2)
 
 subl = []
 
 bigl = []
 
+sennum = 0
+
 for elem in wdlst:
-    subl.append(elem)
+    if len(subl) > 0:
+        subl.append(elem)
+    if len(subl) == 0:
+        elem2 = elem[0].upper() + elem[1:]
+        subl.append(elem2)
 
     if elem.endswith(".") or elem.endswith("!") or elem.endswith("?") :
         bigl.append(subl)
+        sennum += 1
+        parran = random.randrange(5)
+        if parran > 3 and sennum > 4 and len(subl) > 4:
+            bigl.append('\n')
+            bigl.append('\n')
+            sennum = 0
         subl = []
-
 
 ctr = len(bigl)
 
@@ -134,7 +149,10 @@ bigstr = ""
 
 for elem in polst:
     for elem2 in elem:
-        bigstr += elem2 + " "
+        if elem != '\n':
+            bigstr += elem2 + " "
+        if elem == '\n':
+            bigstr += elem2 
 
 
 ounm = "Prosaic_Dream_" + time + ".txt"
@@ -144,8 +162,6 @@ oun = "Prosaic Dream " + time
 outfile = open(ounm, "w")
 
 outfile.write(oun + '\n')
-
-outfile.write( '\n')
 
 outfile.write( '\n')
 
