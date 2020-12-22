@@ -20,7 +20,7 @@ time = ("".join(list))
    
 #srchstr = "C:\\Users\\mysti\\Desktop\Bin\\02_NewPoems"
 
-srchstr = "C:\\Users\\mysti\\Desktop\\Bin\\Reviews"
+srchstr = "C:\\Users\\mysti\\Desktop\\Bin\\Texts"
 
 contentdat = {}
 
