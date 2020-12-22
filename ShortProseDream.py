@@ -6,6 +6,8 @@ from collections import defaultdict
 import datetime
 import re
 from nltk import tokenize
+from unidecode import unidecode
+from string import digits
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -116,7 +118,7 @@ sub2 = []
 
 lam = len(wdlst)
 
-for x in range(30):
+for x in range(20):
     y = random.randrange(lam)
     adstr = wdlst[y]
     if len(adstr) > 5:
@@ -172,12 +174,27 @@ for x in range (ctr):
 
 bigstr = ""
 
+
 for elem in polst:
     for elem2 in elem:
+
         if elem != '\n':
+
             bigstr += elem2 + " "
+
+
         if elem == '\n':
+
             bigstr += elem2 
+
+
+endstr = unidecode(bigstr)
+endstr2 = endstr.replace("THE CASTLE", "")
+endstr3 = endstr2.replace("ANOTHER VERSION", "")
+endstr4 = endstr3.replace("f_", "Frieda")
+
+remove_digits = str.maketrans('', '', digits)
+endstr5 = endstr4.translate(remove_digits)
 
 
 ounm = "Short_Prose_Dream_" + time + ".txt"
@@ -191,7 +208,7 @@ outfile.write(oun + '\n')
 outfile.write( '\n')
 
 try:
-    outfile.write(bigstr + '\n')
+    outfile.write(endstr5 + '\n')
 except:
     print("")
     print("Unicode error")
