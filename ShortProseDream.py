@@ -188,9 +188,9 @@ for elem in polst:
 
 
 endstr = unidecode(bigstr)
-endstr2 = endstr.replace("THE CASTLE", "")
-endstr5 = endstr2.replace("ANOTHER VERSION", "")
 
+#endstr2 = endstr.replace("THE CASTLE", "")
+#endstr5 = endstr2.replace("ANOTHER VERSION", "")
 #remove_digits = str.maketrans('', '', digits)
 #endstr5 = endstr3.translate(remove_digits)
 
@@ -206,7 +206,7 @@ outfile.write(oun + '\n')
 outfile.write( '\n')
 
 try:
-    outfile.write(endstr5 + '\n')
+    outfile.write(endstr + '\n')
 except:
     print("")
     print("Unicode error")

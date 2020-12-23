@@ -18,9 +18,11 @@ for i in right_now:
 
 time = ("".join(list))
    
-srchstr = "C:\\Users\\mysti\\Desktop\Bin\\02_NewPoems"
+#srchstr = "C:\\Users\\mysti\\Desktop\Bin\\02_NewPoems"
 
-srchstr = "C:\\Users\\mysti\\Desktop\\Bin\\Matt"
+#srchstr = "C:\\Users\\mysti\\Desktop\\Bin\\Matt"
+
+srchstr = "C:\\Users\\mysti\\Desktop\\Bin\\Texts"
 
 contentdat = {}
 
@@ -120,8 +122,8 @@ for x in range(40):
   
 ctr = int(len(txlst)/5)
 
-if ctr > 500:
-    ctr == 500
+if ctr > 100:
+    ctr == 100
 
 lim = ctr - 5
 
