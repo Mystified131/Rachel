@@ -5,7 +5,6 @@ import os
 from collections import defaultdict
 import datetime
 import re
-from nltk import tokenize
 from unidecode import unidecode
 from string import digits
 
@@ -190,10 +189,10 @@ for elem in polst:
 
 endstr = unidecode(bigstr)
 endstr2 = endstr.replace("THE CASTLE", "")
-endstr3 = endstr2.replace("ANOTHER VERSION", "")
+endstr5 = endstr2.replace("ANOTHER VERSION", "")
 
-remove_digits = str.maketrans('', '', digits)
-endstr5 = endstr3.translate(remove_digits)
+#remove_digits = str.maketrans('', '', digits)
+#endstr5 = endstr3.translate(remove_digits)
 
 
 ounm = "Short_Prose_Dream_" + time + ".txt"

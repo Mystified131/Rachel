@@ -5,6 +5,7 @@ import os
 from collections import defaultdict
 import datetime
 import re
+from unidecode import unidecode
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -94,7 +95,8 @@ for docnam in finlst:
             tlist = qlist.replace(')', '')
             ulist = tlist.replace('(', '')
             rlist = ulist[0].lower() + ulist[1:]
-            txlst.append(rlist)
+            slist = unidecode(rlist)
+            txlst.append(slist)
         plist = infile.readline()
     infile.close()
 
