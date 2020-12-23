@@ -122,8 +122,8 @@ for x in range(40):
   
 ctr = int(len(txlst)/5)
 
-if ctr > 100:
-    ctr == 100
+if ctr > 50:
+    ctr == 50
 
 lim = ctr - 5
 
