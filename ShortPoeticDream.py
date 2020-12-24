@@ -6,6 +6,7 @@ from collections import defaultdict
 import datetime
 import re
 from unidecode import unidecode
+from string import digits
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -86,6 +87,8 @@ for ctr in range(50):
 
 txlst = []
 
+remove_digits = str.maketrans('', '', digits)
+
 for docnam in finlst:
 
     infile = open(docnam, "r")
@@ -96,9 +99,15 @@ for docnam in finlst:
             qlist = plist.strip()
             tlist = qlist.replace(')', '')
             ulist = tlist.replace('(', '')
-            rlist = ulist[0].lower() + ulist[1:]
-            slist = unidecode(rlist)
-            txlst.append(slist)
+            vlist = ulist.translate(remove_digits)
+            try:
+                rlist = vlist[0].lower() + vlist[1:]
+                slist = unidecode(rlist)
+                txlst.append(slist)
+            except:
+                print("String error.")
+                slist = unidecode(vlist)
+                txlst.append(slist)
         plist = infile.readline()
     infile.close()
 
