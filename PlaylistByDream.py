@@ -19,11 +19,11 @@ time = ("".join(list))
 
 #srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
 
-#srchstr = 'E:\\OriginalAudio\\Songs'
+srchstr = 'E:\\OriginalAudio\\Songs'
 
 #srchstr = 'C:\\Users\\mysti\\Downloads'
 
-srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
+#srchstr = "C:\\Users\\mysti\\Media_Files\\Sounds\\OlderSounds"
 
 contentdat = {}
 

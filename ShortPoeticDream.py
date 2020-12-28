@@ -98,8 +98,8 @@ for docnam in finlst:
         if len(plist) > 3:
             qlist = plist.strip()
             tlist = qlist.replace(')', '')
-            ulist = tlist.replace('(', '')
-            vlist = ulist.translate(remove_digits)
+            vlist = tlist.replace('(', '')
+            #vlist = ulist.translate(remove_digits)
             try:
                 rlist = vlist[0].lower() + vlist[1:]
                 slist = unidecode(rlist)
@@ -131,8 +131,8 @@ for x in range(40):
   
 ctr = int(len(txlst)/5)
 
-if ctr > 50:
-    ctr == 50
+#if ctr > 50:
+    #ctr == 50
 
 lim = ctr - 5
 

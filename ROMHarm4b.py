@@ -71,10 +71,10 @@ for ctr in range(30):
 
 for elem in finlst:
 
-    ellen = len(elem)
+    ellen = len(finlst)
     im = random.randrange(ellen)
 
-    dream = elem[im]
+    dream = finlst[im]
 
     img = Image.open(dream)
     
