@@ -7,6 +7,7 @@ import datetime
 import re
 from unidecode import unidecode
 from string import digits
+#import sys 
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -199,7 +200,7 @@ ounm = "Short_Prose_Dream_" + time + ".txt"
 
 oun = "Short Prose Dream " + time 
 
-outfile = open(ounm, "w")
+outfile = open("temp.txt", "w")
 
 outfile.write(oun + '\n')
 
@@ -211,7 +212,17 @@ except:
     print("")
     print("Unicode error")
 
-outfile.close()       
+outfile.close()   
+
+outfile = open(ounm, "w")
+
+with open("temp.txt") as f: 
+    for line in f: 
+        if not line.isspace(): 
+            #sys.stdout.write(line)
+            outfile.write(line)
+
+outfile.close()  
 
 print("")
 
