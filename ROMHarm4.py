@@ -10,7 +10,9 @@ snglst = ["C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop.mp3", "C:\\Users\\mys
 
 #srchstr = 'C:\\Users\\mysti\\Media_Files\\Dreams'
 
-srchstr = "C:\\Users\\mysti\\Coding\\Rachel\\static"
+#srchstr = "C:\\Users\\mysti\\Coding\\Rachel\\static"
+
+srchstr = "E:\Visual\VariousImages"
 
 contenttot= []
 
