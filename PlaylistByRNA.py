@@ -88,16 +88,12 @@ for w in sorted(contentdat, key=contentdat.get, reverse=False):
 
 totlen = len(newply)
 
-inlen = (int(totlen / 50) - 1)
-
-factr = random.randrange(inlen)
-
 newlst = []
 
-for x in range((factr *50), ((factr*50) + 50)):
-    newlst.append(x)
+startlen = random.randrange(totlen -100)
 
-print(newlst)
+for x in range(startlen, startlen + 100, 2):
+    newlst.append(x)
 
 fonlst = remaplist(newlst)
 
@@ -106,7 +102,7 @@ finlst = []
 for y in range(50):
     valu = fonlst[y]
     if valu > totlen:
-        valu -= random.randrange(totlen)
+        valu -= totlen
     finlst.append(newply[valu])
   
 

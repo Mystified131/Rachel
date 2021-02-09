@@ -84,13 +84,11 @@ infile.close()
 
 leng = len(content)
 
-inlen = (int(leng / 50) - 1)
-
-factr = random.randrange(inlen)
-
 newlst = []
 
-for x in range((factr *50), ((factr*50) + 50)):
+startlen = random.randrange(leng -50)
+
+for x in range(startlen, (startlen + 50)):
     newlst.append(x)
 
 fonlst = remaplist(newlst)

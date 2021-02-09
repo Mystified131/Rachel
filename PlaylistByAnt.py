@@ -73,15 +73,13 @@ for w in sorted(contentdat, key=contentdat.get, reverse=False):
     newply.append(w)
     newplyd.append(contentdat[w])
 
-totlen = len(newply)
-
-inlen = (int(totlen / 50) - 1)
-
-factr = random.randrange(inlen)
+leng = len(newply)
 
 newlst = []
 
-for x in range((factr *50), ((factr*50) + 50)):
+startlen = random.randrange(leng -50)
+
+for x in range(startlen, (startlen + 50)):
     newlst.append(x)
 
 fonlst = remaplist(newlst)
@@ -90,8 +88,8 @@ finlst = []
 
 for y in range(50):
     valu = fonlst[y]
-    if valu > totlen:
-        valu -= random.randrange(totlen)
+    if valu > leng:
+        valu -= random.randrange(leng)
     finlst.append(newply[valu])
   
 
