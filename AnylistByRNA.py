@@ -95,8 +95,6 @@ for x in range((factr *50), ((factr*50) + 50)):
 
 fonlst = remaplist(newlst)
 
-print(fonlst)
-
 finlst = [] 
 
 for y in range(len(fonlst)):
