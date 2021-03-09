@@ -4,6 +4,8 @@ import random
 import os
 from collections import defaultdict
 import datetime
+from RandFunct import random_number
+from RandFunct2 import random_number2
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -47,7 +49,7 @@ for w in sorted(contentdat, key=contentdat.get, reverse=False):
 
 totlen = len(newply)
 
-totch = random.randrange(totlen)
+totch = random_number(totlen)
 
 fitch = newply[totch]
 
@@ -71,7 +73,7 @@ for ctr in range(50):
 
         subl = len(sublst)    
 
-        trok = random.randrange(subl) 
+        trok = random_number(subl) 
 
         fich = sublst[trok]
 
@@ -79,7 +81,7 @@ for ctr in range(50):
 
     if len(sublst) <= 1:
 
-        totch = random.randrange(totlen)
+        totch = random_number(totlen)
 
         fich = newply[totch]
 
