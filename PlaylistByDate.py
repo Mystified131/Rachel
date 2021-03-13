@@ -4,6 +4,8 @@ import random
 import os
 from collections import defaultdict
 import datetime
+from RandFunct import random_number
+from RandFunct2 import random_number2
 
 #this code retrieves the date and time from the computer, to create the timestamp
 

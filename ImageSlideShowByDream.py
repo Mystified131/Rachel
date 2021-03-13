@@ -5,6 +5,8 @@ import os
 from PIL import Image 
 import time
 import playsound
+from RandFunct import random_number
+from RandFunct2 import random_number2
 
 snglst = ["C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop.mp3", "C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop2.mp3", "C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop3.mp3", "C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop4.mp3", "C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop5.mp3", "C:\\Users\\mysti\\Media_Files\\Dreams\\DreamHop6.mp3",]
 
@@ -32,7 +34,7 @@ for subdir, dirs, files in os.walk(srchstr):
 
 totlen = len(contenttot)
 
-totch = random.randrange(totlen)
+totch = random_number(totlen)
 
 fitch = contenttot[totch]
 

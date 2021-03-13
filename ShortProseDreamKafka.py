@@ -7,6 +7,8 @@ import datetime
 import re
 from unidecode import unidecode
 from string import digits
+from RandFunct import random_number
+from RandFunct2 import random_number2
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -45,7 +47,7 @@ for w in sorted(contentdat, key=contentdat.get, reverse=False):
 
 totlen = len(newply)
 
-totch = random.randrange(totlen)
+totch = random_number(totlen)
 
 fitch = newply[totch]
 
@@ -69,7 +71,7 @@ for ctr in range(50):
 
         subl = len(sublst)    
 
-        trok = random.randrange(subl) 
+        trok = random_number(subl) 
 
         fich = sublst[trok]
 
@@ -77,7 +79,7 @@ for ctr in range(50):
 
     if len(sublst) <= 1:
 
-        totch = random.randrange(totlen)
+        totch = random_number(totlen)
 
         fich = newply[totch]
 
@@ -118,7 +120,7 @@ sub2 = []
 lam = len(wdlst)
 
 for x in range(20):
-    y = random.randrange(lam)
+    y = random_number(lam)
     adstr = wdlst[y]
     if len(adstr) > 5:
         sub2.append(wdlst[y])
@@ -143,7 +145,7 @@ for elem in wdlst:
         if flg > 0:
             bigl.append(subl)
             sennum += 1
-            parran = random.randrange(5)
+            parran = random_number(5)
             if parran > 3 and sennum > 4 and len(subl) > 4:
                 bigl.append('\n')
                 bigl.append('\n')
@@ -161,9 +163,9 @@ lim = ctr - 5
 polst = []
 
 for x in range (ctr):
-    lin = random.randrange(lim)
+    lin = random_number(lim)
 
-    rem = random.randrange(1,3)
+    rem = random_number2(1,3)
 
     for y in range(rem):
 

@@ -2,6 +2,8 @@ import random
 import os
 from collections import defaultdict
 import datetime
+from RandFunct import random_number
+from RandFunct2 import random_number2
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -41,26 +43,26 @@ for w in sorted(contentdat, key=contentdat.get, reverse=False):
 hopl = []
 
 for obj in range(24):
-    a = random.randrange(-2, 2)
-    b = random.randrange(-2, 2)
+    a = random_number2(-2, 2)
+    b = random_number2(-2, 2)
     hopl.append((a,b))
 
 moves = 50
 
-fst = random.randrange(len(mapl))
+fst = random_number(len(mapl))
 
 outmap = []
 
 for ctr in range(moves):
-    hopran = random.randrange(len(hopl))
+    hopran = random_number(len(hopl))
     aval = (sum(int(i) for i in hopl[hopran])) * 4
     fst += aval
     astr = mapl[fst]
     outmap.append(astr) 
     mapl.remove(astr)
-    bighop = random.randrange(10)
+    bighop = random_number(10)
     if bighop > 7:
-        fst = random.randrange(len(mapl))
+        fst = random_number(len(mapl))
 
 print(outmap)
 

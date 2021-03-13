@@ -4,6 +4,8 @@ import random
 import os
 from collections import defaultdict
 import datetime
+from RandFunct import random_number
+from RandFunct2 import random_number2
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -33,7 +35,7 @@ def remaplist(lst):
     y = (x // 4) + 1
     outlst = []
     for z in range(y):
-        ctr = random.randrange(24)
+        ctr = random_number(24)
         addlst = rnatot[ctr]
         outlst.append(addlst)
     finlst = []
@@ -86,7 +88,7 @@ leng = len(content)
 
 newlst = []
 
-startlen = random.randrange(leng -50)
+startlen = random_number(leng -50)
 
 for x in range(startlen, (startlen + 50)):
     newlst.append(x)
@@ -98,7 +100,7 @@ finlst = []
 for y in range(len(fonlst)):
     valu = fonlst[y]
     if valu > leng:
-        valu -= random.randrange(leng)
+        valu -= random_number(leng)
     finlst.append(content[valu])
 
 ounam = "DreamOrderedPlaylist_" + time + ".m3u"
@@ -109,10 +111,6 @@ for elem in finlst:
      outfile.write(elem + '\n')
 
 outfile.close()
-
-
-
-
-        
+    
 
 ## THE GHOST OF THE SHADOW ##

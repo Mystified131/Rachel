@@ -4,6 +4,8 @@ from flask import Flask, render_template, session
 import random
 import os
 import webbrowser
+from RandFunct import random_number
+from RandFunct2 import random_number2
 
 #This code configures the web app.
 
@@ -34,7 +36,7 @@ def make_player():
         plist = infile.readline()
     infile.close()
 
-    atracknum1 = random.randrange(0,len(contentmus))
+    atracknum1 = random_number2(0,len(contentmus))
     atrack1 = contentmus[atracknum1]
 
     infile = open("AutoPlayList.txt", "r")
@@ -64,19 +66,19 @@ def make_player():
 
         lslen = len(sublst)   
 
-        pl = random.randrange(lslen)
+        pl = random_number(lslen)
 
         fich = sublst[pl]
 
     if len(sublst) <= 1:
 
-        totch = random.randrange(totlen)
+        totch = random_number(totlen)
 
         fich = contenttot[totch]
 
     while(session['slide'] == fich):
       
-        totch = random.randrange(totlen)
+        totch = random_number(totlen)
 
         fich = contenttot[totch]
 

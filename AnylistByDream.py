@@ -4,6 +4,8 @@ import random
 import os
 from collections import defaultdict
 import datetime
+from RandFunct import random_number
+from RandFunct2 import random_number2
 
 #this code retrieves the date and time from the computer, to create the timestamp
 
@@ -45,15 +47,15 @@ leng = len(content)
 
 for y in range(50):
  
-    trk = random.randrange(leng - 12)
+    trk = random_number(leng - 12)
 
-    skip = random.randrange(1, 12)
+    skip = random_number2(1, 12)
 
     adnum = trk + skip
 
-    dreamcrack = random.randrange(9)
+    dreamcrack = random_number(9)
     if dreamcrack < 4:
-        adnum = random.randrange(1,len(content))
+        adnum = random_number2(1,len(content))
 
     adstr = content[adnum]
 
@@ -68,9 +70,5 @@ for elem in finlst:
 
 outfile.close()
 
-
-
-
-        
 
 ## THE GHOST OF THE SHADOW ##
