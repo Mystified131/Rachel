@@ -2,7 +2,7 @@
 
 import random
 import os
-from PIL import Image, ExifTags
+from PIL import Image, ImageOps, ExifTags
 import time
 import playsound
 from RandFunct import random_number
@@ -25,7 +25,9 @@ snglst = ["F:\\OriginalAudio\\Songs\\SongsC\\Bonegenb\\BoneGen1.wav",
 
 #srchstr = "C:\\Users\\mysti\\Coding\\Rachel\\static"
 
-srchstr = "F:\BlackAndWhitePhotography"
+#srchstr = "F:\BlackAndWhitePhotography"
+
+srchstr = "F:\\Visual\\VisualArt\\PrintsThatAreUseful\\jpg"
 
 contenttot= []
 
@@ -43,81 +45,37 @@ for subdir, dirs, files in os.walk(srchstr):
 
             contenttot.append(filepath)
 
-totlen = len(contenttot)
-
-totch = random_number(totlen)
-
-fitch = contenttot[totch]
-
-fich = str(contentdat[fitch])
-
-print(fich)
-
 finlst = []
 
 for ctr in range(30):
- 
-    sublst = []
 
-    for elem in range(totlen):
-        tesstr = contenttot[elem]
-        testr = str(contentdat[tesstr])
-        piv2str = testr[-10:-8]
+    totlen = len(contenttot)
 
-        if piv2str in fich:
-            sublst.append(tesstr)
+    x2 = random_number(totlen)
 
-    if len(sublst) > 1:        
+    finlst.append(contenttot[x2])
 
-        fich = sublst[-1]
-
-        finlst.append(sublst)
-
-    if len(sublst) <= 1:
-
-        totch = random.randrange(totlen)
-
-        fich = contenttot[totch]
-
-        finlst.append(fich)
-
+    contenttot.remove(contenttot[x2])
 
 for elem in finlst:
 
-    ellen = len(elem)
-    im = random.randrange(ellen)
+    img = Image.open(elem)
 
-    dream = elem[im]
-
-    img = Image.open(dream)
-
-    try:
-
-        for orientation in ExifTags.TAGS.keys():
-            if ExifTags.TAGS[orientation]=='Orientation':
-             break
-    
-        exif = img._getexif()
-
-        if exif[orientation] == 3:
-            img=img.rotate(180)#, expand=True)
-        elif exif[orientation] == 6:
-            img=img.rotate(270)#, expand=True)
-        elif exif[orientation] == 8:
-            img=img.rotate(90)#, expand=True)
-
-    except:
-
-        print()
-
+    img = ImageOps.exif_transpose(img) 
     
     img.show() 
 
-    jkbx = random.randrange(6)
+    time.sleep(10)
 
-    songch = snglst[jkbx]
+    #os.system("taskkill /im firefox.exe /f")
+    os.system("taskkill /im Chrome.exe /f")
+    #os.system("killall -9 'Google Chrome'")
 
-    playsound.playsound(songch, True)
+    #jkbx = random.randrange(6)
+
+    #songch = snglst[jkbx]
+
+    #playsound.playsound(songch, True)
         
 
 ## THE GHOST OF THE SHADOW ##
