@@ -2,7 +2,7 @@
 
 import random
 import os
-from PIL import Image, ImageOps, ExifTags
+from PIL import Image, ImageOps, ExifTags, ImageFile
 import time
 import playsound
 from RandFunct import random_number
@@ -59,16 +59,32 @@ for ctr in range(30):
 
 for elem in finlst:
 
-    img = Image.open(elem)
+    #img = Image.open(elem)
 
-    img = ImageOps.exif_transpose(img) 
+    #img = ImageOps.exif_transpose(img) 
     
-    img.show() 
+    #img.show() 
 
-    time.sleep(10)
+    #time.sleep(10)
+
+    #climg = Image.close(img)
+
+    with Image.open(elem) as img:
+        img = ImageOps.exif_transpose(img) 
+    
+        img.show() 
+
+        time.sleep(5)
+
+    Image.Image.close(img)
+
+
+
+
+    # image operations here.
 
     #os.system("taskkill /im firefox.exe /f")
-    os.system("taskkill /im Chrome.exe /f")
+    #os.system("taskkill /im chrome.exe /f")
     #os.system("killall -9 'Google Chrome'")
 
     #jkbx = random.randrange(6)
